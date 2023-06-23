@@ -1,0 +1,41 @@
+dest_dir: /home/dfpazr/Documents/CogRob/avl/dataset-v1/datasetv1-api/lbpsm_extraction/lbpsm-data
+
+maps:
+        bpsm: /home/dfpazr/Documents/CogRob/avl/TritonNet/iros_psm_ws/src/vision_semantic_segmentation/outputs/cfn_mtx_with_intensity/version_10/global_map.png
+        # mail-route origin
+        # x_origin: 1369.04968262
+        # y_origin: 562.848144531
+        # summer2020-map1
+        x_origin: 637.05267334
+        y_origin: 1365.04785156
+        resolution: 0.2
+
+weights:
+        path: /home/avl-robot/DPGN/dpgn_ws/src/dynamic_path_gen/src/trident_net/weights/cvae-40.pth
+
+nn_params:
+        ego_center_u: 200
+        ego_center_v: 200
+        horizon: 10
+        # [stop signs/traffic signs, crossings]
+        road_features: [False, False]
+
+thresholds: 
+        ego_vehicle_speed: 0.2
+        waypoint_speed: 0.5
+        waypoint_dist_threshold: 1.0
+
+
+interpolation_thresholds:
+        inbetween_distance: 3
+        density: 0.2
+        speed_threshold: 0.2
+
+training_params:
+        batch_size: 32
+        number_epochs: 35
+        z_dim: 12
+        h_map_dim: 128
+        h_traj_dim: 32
+        decoder_dim: 128
+
